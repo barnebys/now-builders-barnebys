@@ -2,7 +2,7 @@
 
 const assert = require('assert');
 const fs = require('fs');
-const { join: pathJoin } = require('path');
+const { join: pathJoin, basename } = require('path');
 const { parse: parseUrl } = require('url');
 const { query } = require('./fastcgi/index.js');
 
@@ -10,9 +10,7 @@ function normalizeEvent(event) {
   if (event.Action === 'Invoke') {
     const invokeEvent = JSON.parse(event.body);
 
-    const {
-      method, path, headers, encoding,
-    } = invokeEvent;
+    const { method, path, headers, encoding } = invokeEvent;
 
     let { body } = invokeEvent;
 
@@ -27,21 +25,25 @@ function normalizeEvent(event) {
     }
 
     return {
-      method, path, headers, body,
+      method,
+      path,
+      headers,
+      body
     };
   }
 
-  const {
-    httpMethod: method, path, headers, body,
-  } = event;
+  const { httpMethod: method, path, headers, body } = event;
 
   return {
-    method, path, headers, body,
+    method,
+    path,
+    headers,
+    body
   };
 }
 
 function isDirectory(p) {
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     fs.stat(p, (error, s) => {
       if (error) {
         resolve(false);
@@ -58,14 +60,14 @@ function isDirectory(p) {
   });
 }
 
-async function transformFromAwsRequest({
-  method, path, headers, body,
-}) {
+async function transformFromAwsRequest({ method, path, headers, body }) {
   const { pathname, search, query: queryString } = parseUrl(path);
   let requestUri = pathname + (search || '');
 
-  let filename = pathJoin('/var/task/user',
-    process.env.NOW_ENTRYPOINT || pathname);
+  let filename = pathJoin(
+    '/var/task/user',
+    process.env.NOW_ENTRYPOINT || pathname
+  );
   if (await isDirectory(filename)) {
     if (!filename.endsWith('/')) {
       filename += '/';

@@ -12,6 +12,9 @@
     "fs-extra": "^7.0.1",
     "@barnebys/php-bridge": "^0.0.1-canary.0"
   },
+  "peerDependencies": {
+    "@now/build-utils": "^0.4.37"
+  },
   "scripts": {
     "test": "jest"
   }

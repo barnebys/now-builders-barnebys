@@ -1,5 +1,5 @@
 {
-  "name": "@now-barnebys/php",
+  "name": "@barnebys/php",
   "version": "0.0.1",
   "license": "MIT",
   "repository": {
@@ -8,7 +8,7 @@
     "directory": "packages/now-php"
   },
   "dependencies": {
-    "@now-barnebys/php-bridge": "^0.0.1"
+    "@barnebys/php-bridge": "^0.0.1"
   },
   "scripts": {
     "test": "jest"

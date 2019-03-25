@@ -8,6 +8,8 @@
     "directory": "packages/now-php"
   },
   "dependencies": {
+    "child_process": "^1.0.2",
+    "fs-extra": "^7.0.1",
     "@barnebys/php-bridge": "^0.0.1"
   },
   "scripts": {

@@ -1,14 +1,14 @@
 {
-  "name": "@now/php",
-  "version": "0.4.16-canary.0",
+  "name": "@now-barnebys/php",
+  "version": "0.0.1",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/zeit/now-builders.git",
+    "url": "https://github.com/barnebys/now-builders-barnebys.git",
     "directory": "packages/now-php"
   },
   "dependencies": {
-    "@now/php-bridge": "^0.4.16-canary.0"
+    "@now-barnebys/php-bridge": "^0.0.1"
   },
   "scripts": {
     "test": "jest"

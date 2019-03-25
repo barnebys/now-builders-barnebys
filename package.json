@@ -1,7 +1,7 @@
 {
   "name": "barnebys-now-builders",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
   "license": "MIT",
   "dependencies": {
     "lerna": "^3.4.3"

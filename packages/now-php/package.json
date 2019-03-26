@@ -1,6 +1,6 @@
 {
   "name": "@barnebys/php",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -10,7 +10,7 @@
   "dependencies": {
     "child_process": "^1.0.2",
     "fs-extra": "^7.0.1",
-    "@barnebys/php-bridge": "^0.0.2"
+    "@barnebys/php-bridge": "^0.1.0-canary.0"
   },
   "peerDependencies": {
     "@now/build-utils": "^0.4.37"

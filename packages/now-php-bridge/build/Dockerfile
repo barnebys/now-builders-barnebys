@@ -18,10 +18,16 @@ RUN yum --enablerepo=remi-safe -y install \
 	    php-mbstring \
 	    php-tokenizer
 
-RUN yum -y install patchelf
+RUN yum -y install patchelf gdb
 
-#RUN wget https://github.com/phalcon/cphalcon/archive/v$PHALCON_VERSION.tar.gz && tar zxf v$PHALCON_VERSION.tar.gz
-#RUN cd cphalcon-$PHALCON_VERSION/build && ./install
+RUN curl -L -O http://ftp.gnu.org/gnu/autoconf/autoconf-2.69.tar.gz && \
+    tar zxf autoconf-2.69.tar.gz && \
+    cd autoconf-2.69 && \
+    yum install -y openssl-devel && \
+    ./configure && make && make install
+
+RUN wget https://github.com/phalcon/cphalcon/archive/v$PHALCON_VERSION.tar.gz && tar zxf v$PHALCON_VERSION.tar.gz
+RUN cd cphalcon-$PHALCON_VERSION/build && ./install
 
 RUN mkdir -p /root/app/public
 

@@ -3,6 +3,15 @@ if (!extension_loaded('mysqli')) {
     die("Mysqli extension not loaded!" . PHP_EOL);
 }
 
+if (!extension_loaded('dom')) {
+    die("DOM extension not loaded!" . PHP_EOL);
+}
+
+if (!extension_loaded('gd')) {
+    die("GD extension not loaded!" . PHP_EOL);
+}
+
+
 if (!class_exists("\\Phalcon\Version")) {
     die("Phalcon extension not loaded!" . PHP_EOL);
 }

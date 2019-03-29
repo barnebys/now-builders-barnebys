@@ -14,6 +14,8 @@ RUN yum --enablerepo=remi-safe -y install \
 	    php-opcache \
 	    php-common \
 	    php-mcrypt \
+	    php-gd \
+	    php-xml \
 	    php-mysqli \
 	    php-mbstring \
 	    php-tokenizer
@@ -44,5 +46,9 @@ RUN patchelf --set-rpath '$ORIGIN' /usr/bin/php
 RUN patchelf --set-rpath '$ORIGIN' /usr/sbin/php-fpm
 RUN patchelf --set-rpath '$ORIGIN' /usr/lib64/php/modules/mysqli.so
 RUN patchelf --set-rpath '$ORIGIN' /usr/lib64/php/modules/mysqlnd.so
+RUN patchelf --set-rpath '$ORIGIN' /usr/lib64/php/modules/mcrypt.so
+RUN patchelf --set-rpath '$ORIGIN' /usr/lib64/php/modules/gd.so
+RUN patchelf --set-rpath '$ORIGIN' /usr/lib64/libfreetype.so.6
+RUN patchelf --set-rpath '$ORIGIN' /usr/lib64/libgd.so.3
 
 CMD ["/bin/bash", "test.sh"]
